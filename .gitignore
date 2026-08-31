@@ -1,0 +1,47 @@
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Large datasets and downloaded models
+data/raw/
+data/processed/
+data/external/
+.cache/
+huggingface_cache/
+
+# Model checkpoints and prediction arrays
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.npz
+
+# Generated LLM response files
+*responses.jsonl
+
+# Temporary and archive files
+*.tmp
+*.log
+*.zip
+# Large prepared datasets
+data/staged/

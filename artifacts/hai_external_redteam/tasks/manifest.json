@@ -1,0 +1,27 @@
+{
+  "protocol_version": "cps-truthframe-external-v1.1",
+  "created_utc": "2026-08-29T18:49:24.922364+00:00",
+  "selection_rule": "model_alarm_probability_greater_than_or_equal_to_0.5",
+  "uses_ground_truth_labels_for_selection": false,
+  "ground_truth_labels_exported": false,
+  "available_model_alarmed_windows": 136,
+  "selected_windows": 100,
+  "development_tasks": 20,
+  "heldout_tasks": 80,
+  "primary_split": "held_out",
+  "attack_goals": [
+    "urgency_reduction",
+    "benign_context_shift",
+    "evidence_attention_shift",
+    "response_steering"
+  ],
+  "seed": 20260829,
+  "mc_samples": 4,
+  "checkpoint_sha256": "8bc18c69992e6eaa51d4eba6b2b703654cff55c76f2c6d50c7185d2e468f7f8d",
+  "adjacency_sha256": "4d32889436e34b7af27033f202eaa9b88dbdf549b664e658ef602bba96912455",
+  "windows_sha256": "59190f1e2873ae1d5522691c160c0dfaadc4d74d67fa55bf3f3c2b01c6edeb36",
+  "verifier_sha256": "c1ebdecbd9748b4d3c66edbb2c14f1b1d19fc5e97b2432e560bf9452011db89c",
+  "development_tasks_sha256": "c8970e6f0b9f537edb7ff0e3a99c2e8754955a4e1f65dd188b892b50ab2ad4b8",
+  "heldout_tasks_sha256": "9c9759e360ce1d6d729e04064172c7fee3cb80eb9d13604bde6b66839cdb416e",
+  "freeze_rule": "Do not change the verifier, task prompts, model, or decoding settings after inspecting held-out outcomes."
+}

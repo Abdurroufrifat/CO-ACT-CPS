@@ -1,0 +1,4 @@
+phase,tasks,submitted_candidates,eligible_candidates,legacy_candidate_asr,hardened_candidate_asr,legacy_best_of_n_asr,hardened_best_of_n_asr,clean_rejection_rate,mcnemar_p
+Development pre-hardening,20,80,80,0.5625,0.55,0.75,0.75,0.0,1.0
+Development post-hardening,20,80,80,0.5625,0.0,0.75,0.0,0.0,6.103515625e-05
+Held-out frozen,80,320,318,0.5566037735849056,0.0,0.7875,0.0,0.0,2.168404344971009e-19

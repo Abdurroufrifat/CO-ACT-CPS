@@ -1,0 +1,4 @@
+accelerate>=0.33,<2
+safetensors>=0.4,<1
+sentencepiece>=0.2,<1
+transformers>=4.51,<6

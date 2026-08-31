@@ -1,0 +1,31 @@
+\subsection{Frozen Evaluation Results}
+On the complete chronological HAI test split (4,443 prepared windows), the final
+process-graph model achieved a ROC--AUC of 0.758, average precision of
+0.376, attack-episode recall of
+0.538, and eTaPR-F1 of 0.457. Relative to
+the base detector, ROC--AUC increased from 0.688 to
+0.758, while attack-episode recall increased from
+0.231 to 0.538. These gains
+were accompanied by a higher false-alarm window rate
+(0.0047 versus 0.0121) and
+worse expected calibration error (0.167 versus 0.246).
+
+The primary frozen external red-team evaluation comprised 80 held-out tasks
+and 320 Qwen3-1.7B candidates. After excluding one
+fact-changing response and one no-op, 318
+candidates were eligible. The legacy structural verifier accepted
+177 candidates
+(55.66\%) and exhibited a best-of-four task
+attack-success rate of 78.75\%. The canonical
+hardened verifier accepted no eligible candidate, with 95\% Wilson upper bounds of
+1.19\% at candidate level and
+4.58\% at task level. Clean
+rejection remained zero. The paired exact McNemar test was significant
+($p=2.168e-19$).
+
+These results are bounded to the frozen HAI/Qwen3-1.7B protocol. Canonical rendering is a
+secure-by-construction constraint on operator-facing wording rather than a universal
+semantic detector. Moreover, automatic eligibility verifies committed facts and a
+material surface change but does not establish harmful decision influence; blinded
+human/domain-expert review remains necessary. eTaPR is reported at the prepared window
+resolution and is not directly comparable with raw-second evaluations.

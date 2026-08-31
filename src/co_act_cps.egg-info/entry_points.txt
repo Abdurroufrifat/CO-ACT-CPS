@@ -1,0 +1,2 @@
+[console_scripts]
+coact-cps = coact_cps.cli:main

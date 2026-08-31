@@ -1,0 +1,196 @@
+{
+  "warning": "Synthetic results are software smoke-test outputs, not publication evidence. Use attack-episode splits on HAI/SWaT for scientific evaluation.",
+  "device": "cpu",
+  "dataset": {
+    "rows": 600,
+    "windows": 190,
+    "nodes": [
+      "MV101",
+      "FIT101",
+      "LIT101",
+      "P101",
+      "FIT201",
+      "PIT201"
+    ]
+  },
+  "test_metrics": {
+    "accuracy": 0.7692307692307693,
+    "balanced_accuracy": 0.530241935483871,
+    "precision": 0.3333333333333333,
+    "recall": 0.125,
+    "f1": 0.18181818181818182,
+    "brier": 0.17233026538250903,
+    "ece": 0.2087634608906228,
+    "roc_auc": 0.717741935483871,
+    "average_precision": 0.44875356125356125,
+    "attack_episode_recall": 0.3333333333333333,
+    "mean_detection_delay_windows": 0.0,
+    "false_alarm_window_rate": 0.06451612903225806,
+    "false_alarm_episode_count": 2.0,
+    "root_hit_at_1": 0.0,
+    "root_hit_at_3": 0.375
+  },
+  "analysis": {
+    "evidence_bundle": {
+      "event_id": "synthetic-demo-event",
+      "alarm_probability": 0.0017760682385414839,
+      "predicted_cause": "LIT101",
+      "cause_probabilities": {
+        "LIT101": 0.3223877251148224,
+        "PIT201": 0.14975246787071228,
+        "MV101": 0.13700923323631287,
+        "P101": 0.1369706690311432,
+        "FIT201": 0.1346120983362198,
+        "FIT101": 0.11926783621311188
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-001",
+          "node": "LIT101",
+          "statement": "LIT101 has value 0.5627 and root-cause support 32.2% in the current window",
+          "score": 0.3223877251148224,
+          "value": 0.5626856684684753,
+          "timestamp": null,
+          "reliability": 1.0,
+          "critical": true
+        },
+        {
+          "evidence_id": "EV-002",
+          "node": "PIT201",
+          "statement": "PIT201 has value 0.8476 and root-cause support 15.0% in the current window",
+          "score": 0.14975246787071228,
+          "value": 0.8475677371025085,
+          "timestamp": null,
+          "reliability": 1.0,
+          "critical": true
+        },
+        {
+          "evidence_id": "EV-003",
+          "node": "MV101",
+          "statement": "MV101 has value 1.0000 and root-cause support 13.7% in the current window",
+          "score": 0.13700923323631287,
+          "value": 1.0,
+          "timestamp": null,
+          "reliability": 1.0,
+          "critical": false
+        },
+        {
+          "evidence_id": "EV-004",
+          "node": "P101",
+          "statement": "P101 has value 1.0000 and root-cause support 13.7% in the current window",
+          "score": 0.1369706690311432,
+          "value": 1.0,
+          "timestamp": null,
+          "reliability": 1.0,
+          "critical": false
+        },
+        {
+          "evidence_id": "PHY-001",
+          "node": "LIT101",
+          "statement": "Configured mass-balance residual is 0.0002 (threshold 0.0300)",
+          "score": 0.005129446799401194,
+          "value": 0.00015388340398203582,
+          "timestamp": null,
+          "reliability": 1.0,
+          "critical": false
+        }
+      ],
+      "alternatives": [
+        "PIT201",
+        "MV101"
+      ],
+      "uncertainty": 0.3409284339286387,
+      "process_context": {
+        "window_length": 32,
+        "node_count": 6
+      },
+      "provenance": {
+        "required": true,
+        "status": "VERIFIED",
+        "algorithm": "HMAC-SHA256",
+        "window_digest": "5e8f331535cfcb2abc03c7a89fa44d302dec31a7c8fbe1f9d5fe71339c5874dc",
+        "scope": "post-ingestion/acquisition-boundary integrity"
+      },
+      "process_grounding": {
+        "required": true,
+        "predicted_cause_supported_by_topology": true,
+        "predicted_cause_relation_degree": 8.0,
+        "invariants_expected": 1,
+        "invariants_evaluated": 1,
+        "invariants": [
+          {
+            "evidence_id": "PHY-001",
+            "kind": "mass_balance",
+            "residual": 0.00015388340398203582,
+            "threshold": 0.03,
+            "status": "CONSISTENT"
+          }
+        ]
+      },
+      "counterfactual": {
+        "required": true,
+        "support": 0.9717825279891991,
+        "minimum": 0.05,
+        "alarm_probability_after_replacement": 1.0366170499764849e-05,
+        "intervention": "replace final LIT101 value with model-consistent value"
+      },
+      "permitted_actions": [
+        "inspect supporting telemetry",
+        "verify actuator command history",
+        "escalate to the responsible operator"
+      ]
+    },
+    "explanation": {
+      "summary": "The detector does not currently classify this window as abnormal; estimated alarm probability is 0.2%. Evidence: LIT101 has value 0.5627 and root-cause support 32.2% in the current window; PIT201 has value 0.8476 and root-cause support 15.0% in the current window; MV101 has value 1.0000 and root-cause support 13.7% in the current window.",
+      "probable_cause": "LIT101",
+      "evidence_ids": [
+        "EV-001",
+        "EV-002",
+        "EV-003"
+      ],
+      "alternatives": [
+        "PIT201",
+        "MV101"
+      ],
+      "uncertainty": 0.3409284339286387,
+      "operator_question": "Can you confirm whether operational context supports LIT101 rather than PIT201?",
+      "recommendation": "inspect supporting telemetry",
+      "raw_text": "{\"summary\": \"The detector does not currently classify this window as abnormal; estimated alarm probability is 0.2%. Evidence: LIT101 has value 0.5627 and root-cause support 32.2% in the current window; PIT201 has value 0.8476 and root-cause support 15.0% in the current window; MV101 has value 1.0000 and root-cause support 13.7% in the current window.\", \"probable_cause\": \"LIT101\", \"evidence_ids\": [\"EV-001\", \"EV-002\", \"EV-003\"], \"alternatives\": [\"PIT201\", \"MV101\"], \"uncertainty\": 0.3409284339286387, \"operator_question\": \"Can you confirm whether operational context supports LIT101 rather than PIT201?\", \"recommendation\": \"inspect supporting telemetry\", \"raw_text\": \"\"}"
+    },
+    "verification": {
+      "status": "VERIFIED",
+      "score": 1.0,
+      "reasons": [
+        "All configured evidence, cause, uncertainty, and action checks passed."
+      ],
+      "missing_critical_evidence": []
+    },
+    "collaboration_decision": {
+      "action": "show_alternatives",
+      "reason": "Model uncertainty is high enough that competing causes should be visible.",
+      "confidence": 0.9409284339286387
+    }
+  },
+  "controlled_attack_check": {
+    "attack": "omit_critical_evidence",
+    "clean_status": "VERIFIED",
+    "attacked_status": "WARNING",
+    "attacked_reasons": [
+      "Critical evidence was omitted: ['EV-001']"
+    ]
+  },
+  "training_history": [
+    {
+      "epoch": 1.0,
+      "train_loss": 0.05764728598296642,
+      "val_f1": 0.2222222222222222,
+      "val_brier": 0.12050054467951882
+    },
+    {
+      "epoch": 2.0,
+      "train_loss": 0.05492783151566982,
+      "val_f1": 0.2222222222222222,
+      "val_brier": 0.1186917704013695
+    }
+  ]
+}

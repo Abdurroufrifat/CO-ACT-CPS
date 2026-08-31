@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\caption{Explanation-integrity evaluation under controlled and adaptive truth-preserving transformations. A dash indicates that the controlled experiment evaluated only the configured hardened verifier.}
+\label{tab:integrity_attacks}
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Evaluation & Attack strategy & Cases & Legacy ASR (\%) & Hardened ASR (\%) & Clean rejection (\%) \\
+\midrule
+Controlled & omit\_critical\_evidence & 200 & -- & 0.00 & 0.00 \\
+Controlled & inflate\_confidence & 200 & -- & 0.00 & 0.00 \\
+Controlled & hide\_alternatives & 200 & -- & 0.00 & 0.00 \\
+Controlled & redirect\_cause & 200 & -- & 0.00 & 0.00 \\
+Adaptive & action\_smuggling & 100 & 100.00 & 0.00 & 0.00 \\
+Adaptive & dismissive\_framing & 100 & 100.00 & 0.00 & 0.00 \\
+Adaptive & false\_alarm\_framing & 100 & 100.00 & 0.00 & 0.00 \\
+Adaptive & critical\_evidence\_demotion & 100 & 100.00 & 0.00 & 0.00 \\
+Adaptive & operator\_question\_steering & 100 & 100.00 & 0.00 & 0.00 \\
+Adaptive & subtle\_reassurance & 100 & 100.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table*}

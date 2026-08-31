@@ -1,0 +1,11 @@
+evaluation,attack,cases,legacy_asr,hardened_asr,integrity_detection_rate,clean_rejection_rate
+Controlled,omit_critical_evidence,200,,0.0,1.0,0.0
+Controlled,inflate_confidence,200,,0.0,1.0,0.0
+Controlled,hide_alternatives,200,,0.0,1.0,0.0
+Controlled,redirect_cause,200,,0.0,1.0,0.0
+Adaptive,action_smuggling,100,1.0,0.0,1.0,0.0
+Adaptive,dismissive_framing,100,1.0,0.0,1.0,0.0
+Adaptive,false_alarm_framing,100,1.0,0.0,1.0,0.0
+Adaptive,critical_evidence_demotion,100,1.0,0.0,1.0,0.0
+Adaptive,operator_question_steering,100,1.0,0.0,1.0,0.0
+Adaptive,subtle_reassurance,100,1.0,0.0,1.0,0.0

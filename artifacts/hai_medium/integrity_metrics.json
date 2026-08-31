@@ -1,0 +1,45 @@
+{
+  "windows": 200,
+  "clean_explanation_false_alarm_rate": 0.0,
+  "by_attack": {
+    "omit_critical_evidence": {
+      "integrity_detection_rate": 1.0,
+      "manipulation_attack_success_rate": 0.0,
+      "statuses": {
+        "VERIFIED": 0,
+        "WARNING": 200,
+        "ABSTAIN": 0
+      }
+    },
+    "inflate_confidence": {
+      "integrity_detection_rate": 0.335,
+      "manipulation_attack_success_rate": 0.665,
+      "statuses": {
+        "VERIFIED": 133,
+        "WARNING": 67,
+        "ABSTAIN": 0
+      }
+    },
+    "hide_alternatives": {
+      "integrity_detection_rate": 0.085,
+      "manipulation_attack_success_rate": 0.915,
+      "statuses": {
+        "VERIFIED": 183,
+        "WARNING": 17,
+        "ABSTAIN": 0
+      }
+    },
+    "redirect_cause": {
+      "integrity_detection_rate": 1.0,
+      "manipulation_attack_success_rate": 0.0,
+      "statuses": {
+        "VERIFIED": 0,
+        "WARNING": 200,
+        "ABSTAIN": 0
+      }
+    }
+  },
+  "mean_verification_overhead_ms": 0.010064800026157172,
+  "p95_verification_overhead_ms": 0.021899999410379678,
+  "warning": "These are controlled channel transformations, not an exhaustive adaptive red-team evaluation."
+}

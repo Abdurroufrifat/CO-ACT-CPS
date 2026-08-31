@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\centering
+\caption{External Qwen3-1.7B truth-preserving explanation red-team results. The frozen held-out split is the primary evaluation. ASR is automatically computed over eligible surface-changing candidates.}
+\label{tab:external_redteam}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Phase & Tasks & Eligible & Legacy cand. & Hardened cand. & Legacy best-$n$ & Hardened best-$n$ & Clean reject. & $p$ \\
+\midrule
+Development pre-hardening & 20 & 80 & 56.25 & 55.00 & 75.00 & 75.00 & 0.00 & 1.000 \\
+Development post-hardening & 20 & 80 & 56.25 & 0.00 & 75.00 & 0.00 & 0.00 & 6.10e-05 \\
+Held-out frozen & 80 & 318 & 55.66 & 0.00 & 78.75 & 0.00 & 0.00 & 2.17e-19 \\
+\bottomrule
+\end{tabular}
+\end{table*}

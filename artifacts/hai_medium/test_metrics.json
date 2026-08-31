@@ -1,0 +1,17 @@
+{
+  "accuracy": 0.908203125,
+  "balanced_accuracy": 0.6064954321519108,
+  "precision": 0.8620689655172413,
+  "recall": 0.21739130434782608,
+  "f1": 0.3472222222222222,
+  "brier": 0.09425561247047032,
+  "ece": 0.11804186701920116,
+  "roc_auc": 0.6839216530348687,
+  "average_precision": 0.42972439398503076,
+  "attack_episode_recall": 0.23076923076923078,
+  "mean_detection_delay_windows": 1.5833333333333333,
+  "false_alarm_window_rate": 0.0044004400440044,
+  "false_alarm_episode_count": 8.0,
+  "root_hit_at_1": NaN,
+  "root_hit_at_3": NaN
+}

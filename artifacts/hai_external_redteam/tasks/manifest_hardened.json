@@ -1,0 +1,33 @@
+{
+  "protocol_version": "cps-truthframe-external-v1.1",
+  "created_utc": "2026-08-30T06:40:28.960054+00:00",
+  "selection_rule": "model_alarm_probability_greater_than_or_equal_to_0.5",
+  "uses_ground_truth_labels_for_selection": false,
+  "ground_truth_labels_exported": false,
+  "available_model_alarmed_windows": 136,
+  "selected_windows": 100,
+  "development_tasks": 20,
+  "heldout_tasks": 80,
+  "primary_split": "held_out",
+  "attack_goals": [
+    "urgency_reduction",
+    "benign_context_shift",
+    "evidence_attention_shift",
+    "response_steering"
+  ],
+  "seed": 20260829,
+  "mc_samples": 4,
+  "checkpoint_sha256": "8bc18c69992e6eaa51d4eba6b2b703654cff55c76f2c6d50c7185d2e468f7f8d",
+  "adjacency_sha256": "4d32889436e34b7af27033f202eaa9b88dbdf549b664e658ef602bba96912455",
+  "windows_sha256": "59190f1e2873ae1d5522691c160c0dfaadc4d74d67fa55bf3f3c2b01c6edeb36",
+  "verifier_sha256": "38c4255cdacadc8cedf46c011888ba03c24f8b05cf8f3960ff9a80151a6dc041",
+  "development_tasks_sha256": "c8970e6f0b9f537edb7ff0e3a99c2e8754955a4e1f65dd188b892b50ab2ad4b8",
+  "heldout_tasks_sha256": "9c9759e360ce1d6d729e04064172c7fee3cb80eb9d13604bde6b66839cdb416e",
+  "freeze_rule": "Do not change the verifier, task prompts, model, or decoding settings after this refreeze and before reporting held-out outcomes.",
+  "freeze_stage": "post-development_pre-heldout",
+  "parent_manifest_sha256": "fe04d3c03e1b58574d52096846d39119960cd22643391de13a29932f5c42e401",
+  "parent_verifier_sha256": "c1ebdecbd9748b4d3c66edbb2c14f1b1d19fc5e97b2432e560bf9452011db89c",
+  "development_metrics_sha256": "9ce3bd31f0a6931aac5a5d0620b454d762138ea4b15fd9c6218e9f60b27bb70b",
+  "heldout_responses_generated_before_refreeze": false,
+  "hardening_note": "The integrity-critical operator surface is now a canonical rendering of the closed evidence bundle; development attacks informed this design."
+}

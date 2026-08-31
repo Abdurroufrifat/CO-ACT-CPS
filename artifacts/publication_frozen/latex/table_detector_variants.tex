@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\caption{Detector performance on the complete chronological HAI test split. Delay is measured in prepared windows and FAWR denotes false-alarm window rate.}
+\label{tab:detector_variants}
+\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+Variant & Bal. Acc. & F1 & ROC-AUC & AP & Ep. Recall & Delay & FAWR & Hit@3 & eTaPR-F1 & ECE \\
+\midrule
+Base detector & 0.606 & 0.333 & 0.688 & 0.329 & 0.231 & 1.583 & 0.0047 & 0.216 & 0.271 & 0.167 \\
+Score recalibrated & 0.681 & 0.471 & 0.693 & 0.364 & 0.519 & 0.889 & 0.0116 & 0.432 & 0.462 & 0.110 \\
+Process graph & 0.656 & 0.430 & 0.758 & 0.372 & 0.500 & 1.077 & 0.0095 & 0.459 & 0.434 & 0.236 \\
+Process graph + recal. & 0.679 & 0.464 & 0.758 & 0.376 & 0.538 & 0.857 & 0.0121 & 0.432 & 0.457 & 0.246 \\
+\bottomrule
+\end{tabular}
+\end{table*}
