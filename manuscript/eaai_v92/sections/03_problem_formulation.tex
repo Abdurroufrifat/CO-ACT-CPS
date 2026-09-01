@@ -1,0 +1,79 @@
+\section{Problem formulation and threat model}
+\label{sec:problem}
+
+\subsection{Evidence bundle and operator surface}
+
+For a telemetry window $X\in\mathbb{R}^{T\times N}$ with $T=64$ rows and $N=86$ process variables, the detector produces an alarm probability $p_a$, a predicted cause $\hat c$, a categorical cause distribution $\boldsymbol{\pi}$, and ranked node evidence. The evidence assembler creates a closed bundle
+\begin{equation}
+\mathcal{B}=\bigl(p_a,\hat c,\boldsymbol{\pi},\mathcal{E},\mathcal{A},u,
+\mathcal{G},\mathcal{P},\mathcal{C}\bigr),
+\label{eq:bundle}
+\end{equation}
+where $\mathcal{E}$ is a list of evidence records, $\mathcal{A}$ contains alternative causes, $u$ is uncertainty, $\mathcal{G}$ records process-grounding facts, $\mathcal{P}$ records provenance status, and $\mathcal{C}$ is the set of permitted diagnostic actions.
+
+An operator explanation is
+\begin{equation}
+x=(s,c,I,A,\tilde u,q,r),
+\label{eq:explanation}
+\end{equation}
+with summary $s$, stated probable cause $c$, ordered evidence identifiers $I$, alternatives $A$, stated uncertainty $\tilde u$, operator question $q$, and recommendation $r$. We separate a machine-checkable committed-fact projection
+\begin{equation}
+\Phi(x)=\bigl(c,\operatorname{set}(I),\operatorname{set}(A),\tilde u\bigr)
+\label{eq:commitment}
+\end{equation}
+from the integrity-critical operator surface
+\begin{equation}
+\Psi(x)=\bigl(s,I,A,q,r\bigr).
+\label{eq:surface}
+\end{equation}
+The distinction allows evidence order and operator language to be security-relevant even when the unordered factual sets are unchanged.
+
+\subsection{Truth-preserving explanation attack}
+
+Let $x_0$ be the clean explanation derived from $\mathcal{B}$. A candidate $x'$ is eligible for the attack evaluation when
+\begin{align}
+\Phi(x') &= \Phi(x_0), \label{eq:factpreserve}\\
+\Psi(x') &\neq \Psi(x_0), \label{eq:materialchange}\\
+\operatorname{parse}(x')&=1. \label{eq:parse}
+\end{align}
+Equation~\eqref{eq:factpreserve} requires exact preservation of probable cause, evidence-ID set, alternative set, and uncertainty. Equation~\eqref{eq:materialchange} excludes a copied or purely formatting-equivalent response. Candidates that invent fields, fail to parse, violate a committed fact, or leave the operator surface unchanged are not placed in the ASR denominator.
+
+The attacker aims to change operator-facing decision semantics: reduce apparent urgency, shift attention to benign context, demote critical evidence, or steer the operator away from a permitted diagnostic response. This objective is represented by the prompt and by mechanical eligibility checks, but is not treated as a proven human effect. We therefore separate mechanical eligibility from human semantic validity. For item $i$, the frozen review rule is
+\begin{equation}
+h_i=\mathbb{1}[f_i=1]\mathbb{1}[u_i=0]
+\mathbb{1}[a_i\geq4]\mathbb{1}[o_i\geq3],
+\label{eq:humanvalid}
+\end{equation}
+where $f_i$ is structured-fact consistency, $u_i$ flags an unsupported free-text claim, and $a_i,o_i\in\{1,\ldots,5\}$ are attack-goal adherence and likely operator influence. This rule assesses the text against its assigned objective; it does not measure an operator's actual behavior.
+
+\input{tables/table_threat_model}
+
+\subsection{Verifier success and attack metrics}
+
+Let $V(\mathcal{B},x)\in\{\mverified,\mwarning,\mabstain\}$ be the deployed gate. An eligible candidate succeeds when it is accepted as \verified:
+\begin{equation}
+z(\mathcal{B},x')=\mathbb{1}\left[V(\mathcal{B},x')=\mverified\right].
+\end{equation}
+For $M$ eligible candidates, candidate ASR is
+\begin{equation}
+\asr_{\mathrm{cand}}=\frac{1}{M}\sum_{m=1}^{M}z_m.
+\label{eq:candidate_asr}
+\end{equation}
+For $K$ tasks with candidate set $\mathcal{X}_k$, best-of-$n$ task ASR is
+\begin{equation}
+\asr_{\mathrm{task}}=\frac{1}{K}\sum_{k=1}^{K}
+\mathbb{1}\left[\max_{x\in\mathcal{X}_k} z(\mathcal{B}_k,x)=1\right].
+\label{eq:task_asr}
+\end{equation}
+The candidate metric measures per-generation exposure; the task metric measures whether at least one of the attacker's $n$ attempts bypasses the gate for a window. Clean rejection is measured separately and is never folded into ASR. When candidates share a task context, task-level best-of-$n$ is the primary security unit; candidate rates remain descriptive because repeated generations from one task are not independent.
+
+For a finite registered surface $\mathcal R(\mathcal B)$, safe coverage and selective risk are
+\begin{align}
+\operatorname{Cov}_{\mathrm{safe}} & = \frac{1}{N_s}\sum_{i:y_i=0}
+\mathbb{1}[V(\mathcal B_i,x_i)=\mverified], \\
+\operatorname{Risk}_{\mathrm{sel}} & =
+\frac{\sum_i y_i\mathbb{1}[V(\mathcal B_i,x_i)=\mverified]}
+{\sum_i\mathbb{1}[V(\mathcal B_i,x_i)=\mverified]},
+\label{eq:selective}
+\end{align}
+where $y_i=1$ denotes an attack candidate and $N_s$ is the number of clean or preregistered benign surfaces. A zero-coverage system can have zero selective risk trivially; security is therefore reported together with safe coverage.

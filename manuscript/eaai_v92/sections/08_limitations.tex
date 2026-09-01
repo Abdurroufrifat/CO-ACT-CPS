@@ -1,0 +1,26 @@
+\section{Limitations and threats to validity}
+\label{sec:limitations}
+
+\paragraph{One dataset and one confirmatory response model.}
+The untouched held-out study uses HAI-23.05 and Qwen3-1.7B. Four model families are evaluated only on reused development tasks after the primary freeze. Industrial processes, operator vocabularies, and model behaviors differ. Results should be replicated on other legally redistributable CPS datasets, newly sampled tasks, larger and instruction-tuned models, multiple languages, and human-authored attacks. The Wilson bounds quantify sampling uncertainty, not domain shift.
+
+\paragraph{Blinded text ratings but no operator study.}
+Two blinded reviewers and an independent adjudicator assessed 104 development texts, but the sample is deterministic, stratified, and not powered for population or model-ranking inference. Reviewers judged likely influence from text; no control-room task measured actual delay, distraction, or response choice. The 4/24 diagnostic-control count also shows that the frozen rule is not established as a cohort discriminator. The reported ASR remains verifier bypass, not behavioral harm.
+
+\paragraph{Canonicalization makes the tested guarantee narrow.}
+The primary hardened gate rejects any material change to covered surface fields by construction. The registered extension admits only a finite phrasebook. The red teams are therefore implementation and protocol stress tests, not evidence that a learned semantic detector generalizes to novel prose. Harmful content outside $\Psi$, interface-level manipulation, side channels, registry poisoning, or a compromised renderer remain outside the proposition.
+
+\paragraph{Development-informed hardening.}
+Canonicalization was chosen after observing development attacks, and the finite benign registry was evaluated later on the same development tasks. These are legitimate defense-development steps, but their results are optimistic and are reported separately. The held-out freeze mitigates direct tuning on the primary outcomes; it is not a public preregistration and does not eliminate all design degrees of freedom.
+
+\paragraph{Detector quality and calibration.}
+Window recall is 0.370, episode recall is 0.538, and ECE is 0.246. The detector is sufficient to create realistic alarmed tasks but is not a complete industrial IDS. Calibration, selective prediction, alarm grouping, and cross-release validation require further work. eTaPR is computed at 64-row window resolution and should not be compared numerically with raw-second evaluations.
+
+\paragraph{Weak physics and provenance claims.}
+The frozen configuration has zero explicit physics-invariant weight and no configured invariant. Some topology edges are learned correlations or manually grouped operational context, not authenticated physical relations. The current counterfactual minimum is zero, so that check can be vacuous. The window digest starts after ingestion and does not authenticate the sensor acquisition path. Future work must add nonvacuous invariants, intervention tests, and signed acquisition provenance before claiming physics assurance.
+
+\paragraph{Restricted derived test bytes.}
+The publication freeze records the checksum of the prepared test array but excludes the bytes from the evidence archive. This preserves the chosen redistribution boundary, although it prevents a reader without authorized source access from reproducing the detector evaluation from the archive alone. Summary metrics, predictions, episode outcomes, topology, checkpoint hash, task records, responses, and verification code remain traceable in the separate evidence package.
+
+\paragraph{Automated attack eligibility.}
+Eligibility requires parsing, committed-fact preservation, and a material surface change. These rules exclude no-op text but cannot decide whether a subtle rewrite is pragmatically harmful. Conversely, exact string comparison may reject a harmless stylistic variation. This is the deliberate security-usability trade-off and should be measured with operators before deployment.

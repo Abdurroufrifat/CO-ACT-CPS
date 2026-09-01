@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\caption{Post-freeze multi-model development stress test. Task ASR is the primary unit; Wilson intervals are shown in parentheses. Model tags and digests are preserved in the machine-readable artifact.}
+\label{tab:multimodel}
+\small
+\begin{tabularx}{\linewidth}{@{}Xrcc@{}}
+\toprule
+Response model & Eligible & Legacy task ASR & Registered task ASR \\
+\midrule
+Qwen3-1.7B & 80 & 15/20; 0.750 (0.531--0.888) & 0/20; 0.000 (0--0.161) \\
+Gemma 4 12B & 72 & 14/18; 0.778 (0.548--0.910) & 0/18; 0.000 (0--0.176) \\
+Ministral 3 14B & 72 & 8/18; 0.444 (0.246--0.663) & 0/18; 0.000 (0--0.176) \\
+Phi-4 mini 3.8B & 64 & 14/20; 0.700 (0.481--0.855) & 0/20; 0.000 (0--0.161) \\
+\midrule
+Across models on shared tasks & 288 & 19/20; 0.950 (0.764--0.991) & 0/20; 0.000 (0--0.161) \\
+\bottomrule
+\end{tabularx}
+\vspace{2pt}
+\begin{minipage}{0.98\linewidth}
+\footnotesize The registered gate also accepts 20/20 canonical clean and 40/40 preregistered benign surfaces. Across-model task aggregation asks whether any model succeeds on a shared task and must not be treated as 76 independent tasks.
+\end{minipage}
+\end{table}

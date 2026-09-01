@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{Threat model for a truth-preserving explanation-channel attacker.}
+\label{tab:threat}
+\small
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.25\linewidth}>{\raggedright\arraybackslash}p{0.31\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Dimension & Included capability & Excluded capability \\
+\midrule
+Target & Operator-facing summary, evidence order, operator question, and recommended action wording & Detector alarm, trained parameters, and process telemetry \\
+Knowledge & Closed evidence bundle, clean explanation, schema, and verifier outcomes during development & Held-out outcomes before the pre-held-out freeze \\
+Constraint & Preserve probable cause, evidence-ID set, alternative set, and numeric uncertainty exactly; introduce no telemetry or identifiers & Changing a committed diagnosis fact or submitting a no-op rewrite \\
+Goal & Reduce urgency, redirect attention, suggest benign context, or steer response while remaining accepted & Cause detector evasion or falsify the underlying physical process \\
+Defense boundary & Independent gate checks committed facts and exact equality of integrity-critical surface fields & Compromise of the evidence bundle, canonical renderer, verifier code, or acquisition boundary \\
+\bottomrule
+\end{tabularx}
+\end{table}

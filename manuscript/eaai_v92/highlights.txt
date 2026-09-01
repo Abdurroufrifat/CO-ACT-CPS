@@ -1,0 +1,7 @@
+CO-ACT-CPS binds operator-facing explanations to a closed evidence contract.
+
+Legacy checks allowed 55.7% candidate and 78.8% best-of-four attacks.
+
+The frozen hardened gate showed zero observed held-out ASR with no clean rejection.
+
+Blinded review validated 12/80 sampled attacks under a frozen semantic rule.

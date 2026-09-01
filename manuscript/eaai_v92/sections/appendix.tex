@@ -1,0 +1,30 @@
+\appendix
+
+\section{Proof of the unregistered-surface rejection property}
+\label{app:proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:surface}]
+Assume for contradiction that a candidate $x'$ satisfies $\Psi(x')\notin\mathcal R(\mathcal B)$ and nevertheless receives \verified{} status. By the hardened acceptance rule, \verified{} implies $\Psi(x')\in\mathcal R(\mathcal B)$, which is a contradiction. Therefore $x'$ cannot receive \verified{} status. It must return \warning{} or \abstain{} according to the remaining hard-failure and integrity rules. For exact canonicalization, $\mathcal R(\mathcal B)=\{C(\mathcal B)\}$, so every material change from the unique canonical surface is unregistered and cannot be \verified.
+\end{proof}
+
+The result assumes deterministic rendering, exact comparison after canonical parsing, complete coverage of every security-critical field by $\Psi$, and integrity of $\mathcal B$, $\mathcal R$, and $V$. It says nothing about an unsafe registered template, unmodeled interface content, compromised code, or human interpretation of accepted text.
+
+\section{Compact model card}
+\label{app:modelcard}
+
+Following model-reporting practice \citep{mitchell2019modelcards}, the primary checkpoint is summarized as follows.
+
+\begin{description}[style=nextline]
+  \item[Intended use.] Research and bounded decision-support experiments for industrial anomaly triage, evidence ranking, and explanation-integrity evaluation on HAI-like telemetry.
+  \item[Intended users.] Researchers, industrial cybersecurity engineers, and trained control-system operators working within a separately governed incident-response process.
+  \item[Out-of-scope uses.] Autonomous actuation, shutdown decisions, safety certification, universal intrusion detection, or causal attribution without human investigation.
+  \item[Training regime.] Compact 32-dimensional, one-layer, four-head relational temporal detector; normal-only detection mode; five epochs; process-graph relations with recorded provenance.
+  \item[Primary test performance.] Balanced accuracy 0.679; window F1 0.464; episode recall 0.538; false-alarm window rate 0.0121; detected-evaluable target hit@3 0.583; ECE 0.246.
+  \item[Known limitations.] Missed episodes, imperfect calibration, partial target observability, no explicit physics-invariant loss, unauthenticated acquisition boundary, and evaluation on one dataset release.
+  \item[Human evidence and oversight.] A blinded development review characterizes 104 generated or control texts; it does not measure operator behavior. Every displayed recommendation remains limited to a registered diagnostic action, and the final operational decision belongs to a human operator under local procedures.
+\end{description}
+
+\section{Artifact-to-claim traceability}
+\label{app:traceability}
+
+The project follows reproducibility recommendations that separate claims from executable and machine-readable evidence \citep{pineau2021reproducibility}. Detector values in Table~\ref{tab:detector} and Figures~\ref{fig:detector-tradeoffs}--\ref{fig:calibration} come from the four full-test metrics files and the primary prediction array. Episode denominators in Figure~\ref{fig:episode-results} come from the metrics file and episode CSV. Table~\ref{tab:integrity-stages} and Figure~\ref{fig:integrity-stages} come from the controlled and adaptive integrity JSON files. Table~\ref{tab:external} and Figure~\ref{fig:external} come from the held-out external metrics file. Table~\ref{tab:multimodel} and Figure~\ref{fig:multimodel} come from \texttt{development\_multimodel\_v92\_metrics.json}; Table~\ref{tab:human-validation} and Figure~\ref{fig:human-validation} come from \texttt{final\_human\_validation\_metrics.json}. The public review archive retains coded outputs and payload commitments, whereas private condition keys and identifying adjudication evidence remain outside the public package. The publication summary and reproducibility manifest repeat the primary values and hashes, and the checksum list covers every included source artifact except the intentionally excluded prepared test array.

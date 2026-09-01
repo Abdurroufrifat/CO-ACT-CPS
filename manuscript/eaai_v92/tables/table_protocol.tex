@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\caption{Frozen experimental protocol and evaluation denominators.}
+\label{tab:protocol}
+\small
+\begin{tabularx}{\linewidth}{@{}p{0.34\linewidth}X@{}}
+\toprule
+Item & Frozen value \\
+\midrule
+Industrial dataset & HAI-23.05 hardware-in-the-loop industrial-control telemetry \\
+Process representation & 86 variables; 234 relation entries across six provenance-separated relation types; all 86 nodes connected \\
+Windowing & 64 rows per window, stride 64, chronological order, attack label if any row is attacked \\
+Detector test scope & 4,443 windows; 52 attack episodes; 37 episodes with observable exact targets; 15 targets hidden from telemetry \\
+Primary alarm threshold & 0.5 \\
+External task selection & 100 of 136 model-alarmed windows; labels neither used for selection nor exported \\
+Split & 20 development tasks and 80 held-out tasks; held-out is primary \\
+Attack objectives & Urgency reduction, benign-context shift, evidence-attention shift, and response steering \\
+Response model & Qwen3-1.7B, non-thinking chat template, four candidates per task \\
+Decoding & Temperature 0.9, top-$p$ 0.95, top-$k$ 50, maximum 700 new tokens, seeded sampling \\
+Protocol version & \texttt{cps-truthframe-external-v1.1} \\
+Post-freeze development stress test & Four response-model families; same 20 development tasks; 320 submitted and 288 eligible attack candidates; 20 clean and 40 preregistered benign surfaces \\
+Blinded semantic review & 104 deterministic stratified texts (80 attack, 24 diagnostic controls); two independent reviewers; 14 disagreement items independently adjudicated \\
+\bottomrule
+\end{tabularx}
+\end{table}

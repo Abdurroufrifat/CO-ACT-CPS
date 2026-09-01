@@ -1,0 +1,132 @@
+{
+  "evaluation": "adaptive_truth_preserving_explanation_red_team",
+  "available_alarmed_windows": 136,
+  "evaluated_alarmed_windows": 100,
+  "candidates_per_window": 6,
+  "strategies": [
+    "action_smuggling",
+    "dismissive_framing",
+    "false_alarm_framing",
+    "critical_evidence_demotion",
+    "operator_question_steering",
+    "subtle_reassurance"
+  ],
+  "committed_fact_preservation_rate": 1.0,
+  "detector_alarm_and_prediction_preserved_by_design": true,
+  "uses_ground_truth_test_labels": false,
+  "verifiers": {
+    "legacy_structural": {
+      "clean_explanation_rejection_rate": 0.0,
+      "adaptive_best_of_n_attack_success_rate": 1.0,
+      "by_strategy": {
+        "action_smuggling": {
+          "attack_success_rate": 1.0,
+          "statuses": {
+            "VERIFIED": 100,
+            "WARNING": 0,
+            "ABSTAIN": 0
+          }
+        },
+        "dismissive_framing": {
+          "attack_success_rate": 1.0,
+          "statuses": {
+            "VERIFIED": 100,
+            "WARNING": 0,
+            "ABSTAIN": 0
+          }
+        },
+        "false_alarm_framing": {
+          "attack_success_rate": 1.0,
+          "statuses": {
+            "VERIFIED": 100,
+            "WARNING": 0,
+            "ABSTAIN": 0
+          }
+        },
+        "critical_evidence_demotion": {
+          "attack_success_rate": 1.0,
+          "statuses": {
+            "VERIFIED": 100,
+            "WARNING": 0,
+            "ABSTAIN": 0
+          }
+        },
+        "operator_question_steering": {
+          "attack_success_rate": 1.0,
+          "statuses": {
+            "VERIFIED": 100,
+            "WARNING": 0,
+            "ABSTAIN": 0
+          }
+        },
+        "subtle_reassurance": {
+          "attack_success_rate": 1.0,
+          "statuses": {
+            "VERIFIED": 100,
+            "WARNING": 0,
+            "ABSTAIN": 0
+          }
+        }
+      },
+      "mean_verification_overhead_ms": 0.046923857173948945,
+      "p95_verification_overhead_ms": 0.06830000347690657
+    },
+    "hardened_decision_semantic": {
+      "clean_explanation_rejection_rate": 0.0,
+      "adaptive_best_of_n_attack_success_rate": 0.0,
+      "by_strategy": {
+        "action_smuggling": {
+          "attack_success_rate": 0.0,
+          "statuses": {
+            "VERIFIED": 0,
+            "WARNING": 0,
+            "ABSTAIN": 100
+          }
+        },
+        "dismissive_framing": {
+          "attack_success_rate": 0.0,
+          "statuses": {
+            "VERIFIED": 0,
+            "WARNING": 100,
+            "ABSTAIN": 0
+          }
+        },
+        "false_alarm_framing": {
+          "attack_success_rate": 0.0,
+          "statuses": {
+            "VERIFIED": 0,
+            "WARNING": 100,
+            "ABSTAIN": 0
+          }
+        },
+        "critical_evidence_demotion": {
+          "attack_success_rate": 0.0,
+          "statuses": {
+            "VERIFIED": 0,
+            "WARNING": 100,
+            "ABSTAIN": 0
+          }
+        },
+        "operator_question_steering": {
+          "attack_success_rate": 0.0,
+          "statuses": {
+            "VERIFIED": 0,
+            "WARNING": 100,
+            "ABSTAIN": 0
+          }
+        },
+        "subtle_reassurance": {
+          "attack_success_rate": 0.0,
+          "statuses": {
+            "VERIFIED": 0,
+            "WARNING": 100,
+            "ABSTAIN": 0
+          }
+        }
+      },
+      "mean_verification_overhead_ms": 0.07328042861315356,
+      "p95_verification_overhead_ms": 0.10010999831138177
+    }
+  },
+  "limitations": "Template search is adaptive to verifier outcomes but is not an external LLM red team or a human-subject decision study."
+}

@@ -1,0 +1,22 @@
+\begin{table}[!htbp]
+\centering
+\caption{Primary held-out external red-team results. Candidate-level denominators include only parsed, committed-fact-preserving, non-no-op candidates. Intervals are 95\% Wilson intervals.}
+\label{tab:external}
+\small
+\begin{tabularx}{\linewidth}{@{}Xcc@{}}
+\toprule
+Measure & Legacy structural & Hardened decision-semantic \\
+\midrule
+Eligible candidate successes & 177 / 318 & 0 / 318 \\
+Candidate ASR (95\% CI) & 0.557 (0.502--0.610) & 0.000 (0.000--0.0119) \\
+Successful best-of-4 tasks & 63 / 80 & 0 / 80 \\
+Best-of-4 ASR (95\% CI) & 0.788 (0.686--0.863) & 0.000 (0.000--0.0458) \\
+Candidate statuses (V/W/A) & 177 / 0 / 141 & 0 / 0 / 318 \\
+Clean explanation rejection & 0.000 & 0.000 \\
+\bottomrule
+\end{tabularx}
+\vspace{2pt}
+\begin{minipage}{0.98\linewidth}
+\footnotesize Submitted: 320; committed-fact preserving: 319; eligible: 318; unique adversarial texts: 314. Task-level discordant pairs were 63 legacy-only successes and zero hardened-only successes; the two-sided exact McNemar value was $p=2.1684\times10^{-19}$.
+\end{minipage}
+\end{table}

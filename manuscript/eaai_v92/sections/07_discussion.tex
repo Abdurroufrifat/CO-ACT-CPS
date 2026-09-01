@@ -1,0 +1,50 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Why structural correctness was insufficient}
+
+The legacy verifier checks many properties that would ordinarily be called groundedness: every identifier must exist, critical evidence must be present, the cause must belong to the bundle, uncertainty must stay in range, alternatives must be supported, and the action must contain permitted language. Yet 55.7\% of eligible external candidates pass. The failure is not factual hallucination. It is the gap between an unordered fact contract and the ordered, pragmatic message shown to a person.
+
+The external responses illustrate several routes through that gap. A candidate can reproduce the evidence sentence exactly while replacing a targeted diagnostic question with a request to search for benign context. It can preserve the action phrase inside a longer sentence that delays or qualifies the action. It can retain all evidence IDs but change their order or surrounding emphasis. A structural verifier sees the expected components; an operator sees a different decision frame.
+
+The hardened gate closes the observed gap by declining to solve an open-ended semantic-classification problem. It binds critical surface fields to a canonical rendering. This is analogous to parameterized queries or signed structured records: untrusted generation cannot redefine the security-relevant message. Regex checks for unsafe framing remain defense in depth, but the primary invariant is equality with $C(\mathcal B)$.
+
+\subsection{Meaning of the zero observed ASR}
+
+The strongest justified claim is narrow: under frozen external protocol version 1.1, with Qwen3-1.7B, the frozen tasks and decoding settings, and the frozen verifier hash, no eligible held-out candidate is accepted. The exact surface-commitment proposition explains why a material change to a covered field must fail. The experiment additionally tests whether the task builder, parser, generation path, and verifier implement that contract without an observed bypass.
+
+Three broader claims are not supported. First, the result does not establish that every natural-language manipulation is covered; a harmful implication may reside in a field that designers failed to classify as critical. Second, it does not establish robustness if the evidence bundle, renderer, or verifier is compromised. Third, it does not establish actual operator behavior. The blinded review strengthens the text-level claim by showing that 12 sampled attacks satisfy a frozen semantic rule, but ratings of likely influence remain judgments about text. Human-centered validation must still measure comprehension, response choice, workload, and appropriate reliance in a separately governed operator study.
+
+\subsection{Security-usability trade-off}
+
+Canonicalization reduces attack surface by reducing generative freedom. That is a feature for actions and alarm-critical claims, but it can also make explanations repetitive, less adaptive to operator expertise, and less able to incorporate legitimate local context. The post-freeze registry experiment makes this trade-off visible: exact equality rejects all 40 benign variants, whereas a finite preregistered set accepts all 40 without accepting any of 288 mechanically eligible attacks. This is useful engineering evidence, but only for the tested phrasebook. A deployment should therefore separate fields by consequence. High-integrity fields---alarm statement, critical evidence, alternatives, uncertainty, diagnostic question, and permitted action---should remain canonical or finitely registered. Lower-risk fields such as glossary expansion or nonbinding background may admit generation with separate labeling and logging.
+
+This separation supports calibrated trust better than a single fluent paragraph. Operators can see which content is committed by evidence and which content is merely generated assistance. Cognitive-forcing research suggests that interface design should encourage checking rather than automatic acceptance \citep{bucinca2021trust}. Future versions could require a brief operator confirmation of the evidence-action link before escalation, but such interaction must be tested rather than presumed beneficial.
+
+\subsection{What the blinded review adds---and does not add}
+
+High pre-adjudication agreement shows that the rubric can be applied consistently to this sample, and the independent adjudication completes the frozen protocol without changing payloads. The 12 validated attack texts establish that automated eligibility was not merely detecting harmless formatting changes. At the same time, the 4/24 diagnostic-control count prevents a simplistic interpretation of the rule as an attack classifier. Some clean or registered benign text can align with an assigned objective under the rubric, especially benign-context shift. The human study therefore serves claim validation and error analysis; it is not a replacement verifier and should not be used to tune the frozen gate after the fact.
+
+\subsection{Detector and explanation assurance are complementary}
+
+The detector results prevent a misleading systems claim. The primary model misses 24 of 52 episodes, has a 1.21\% false-alarm window rate, and has ECE 0.246. Explanation integrity cannot compensate for a missed episode, and exact preservation of an overconfident probability does not make that probability trustworthy. Conversely, a better detector does not secure the language channel. The engineering requirement is layered: detection quality, evidence provenance, calibration, surface integrity, and human decision support each need their own evaluation.
+
+The process graph contributes most clearly to ranking and root localization rather than a universal classification improvement. Its relation provenance is valuable because it distinguishes official process links from learned dependencies. Still, root probabilities remain model support, not causal identification. An operator should inspect telemetry and command history rather than treat the top node as a proven origin.
+
+\subsection{Comparison with recent 2025--2026 systems}
+
+Table~\ref{tab:recent-comparison} places the results beside recent graph, LLM, multi-agent, and human-centered cybersecurity studies. The comparison reveals a deliberate difference in optimization target. CGTS reports very high detection scores on automotive CAN benchmarks \citep{zhou2025cgts}; the hierarchical multi-agent framework reports perfect recall for its larger tested models and accuracies between 90.18\% and 96.97\% on three other datasets \citep{ferraro2026multiagent}; and DeepGuardXAI reports 99.86\% accuracy on CIC-IDS2017 together with a NASA-TLX evaluation \citep{barik2026deepguard}. Those values should not be placed on the same statistical axis as our 0.679 balanced accuracy because neither the data nor the prediction targets match. They show that the present detector is not a state-of-the-art detection claim. Its role is to supply a reproducible evidence source for testing a different failure mode.
+
+Recent LLM work is closer in interface but still distinct in assurance objective. AttackLLM demonstrates the value of generative models for scalable industrial attack synthesis \citep{ahmed2025attackllm}. Kong et al. use an off-the-shelf LLM to produce token-grounded Modbus incident records and evaluate whether cited tokens matter to the model's decision \citep{kong2026llm}. Ferraro et al. aggregate evidence into human-understandable multi-agent explanations \citep{ferraro2026multiagent}. None of these reported evaluations asks the exact question tested here: after the evidence and permitted action are fixed, can an adaptive generator materially alter the security-critical surface and still pass an independent gate? The held-out 0/318 result answers that bounded question for the frozen contract, while the 12/80 human-valid count shows why the question is not merely syntactic.
+
+The human comparison is similarly complementary. Interviews reported by \citet{hagen2025human} identify skepticism, automation bias, and preference for hybrid operation; DeepGuardXAI evaluates workload and trust with NASA-TLX \citep{barik2026deepguard}. Our two-reviewer study is not an operator-utility study. It establishes only that a preregistered semantic rule can identify a bounded subset of materially manipulative, fact-preserving texts with high inter-rater agreement. A controlled operator experiment remains necessary before claiming improved decisions, workload, or trust calibration.
+
+\input{tables/table_recent_comparison}
+
+\FloatBarrier
+
+\subsection{Operational deployment pattern}
+
+A practical deployment can implement the gate as a small service between analytics and the human-machine interface. The evidence bundle is serialized and hashed; the renderer and verifier run in a separate process with a pinned version; the interface displays status and reasons; and every rejected candidate is logged. At the measured sub-millisecond verifier cost, the gate is negligible relative to telemetry transport, model inference, or an LLM call. The system should fail closed on parse error, hash drift, missing provenance when required, or unknown action.
+
+This pattern aligns with risk-management guidance that calls for explicit governance, measurement, and human oversight \citep{nist2023airmf,nist2024genai}. It is also auditable: a reviewer can reconstruct which bundle, renderer version, and verifier hash produced a displayed message.

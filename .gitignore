@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .mypy_cache/
+*.egg-info/
 
 # Virtual environments
 .venv/
@@ -45,3 +46,11 @@ huggingface_cache/
 *.zip
 # Large prepared datasets
 data/staged/
+# CO-ACT-CPS private human-review audit material
+*Private-Audit*.zip
+**/PRIVATE_AUDIT*/
+**/PRIVATE_item_key.json
+**/*independence_declaration_email*
+**/*reviewer_A_original*
+**/*reviewer_B_original*
+**/*Adjudication_RC03_original*
