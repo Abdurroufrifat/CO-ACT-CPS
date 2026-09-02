@@ -1,8 +1,0 @@
-# CO-ACT-CPS private human-review audit material
-*Private-Audit*.zip
-**/PRIVATE_AUDIT*/
-**/PRIVATE_item_key.json
-**/*independence_declaration_email*
-**/*reviewer_A_original*
-**/*reviewer_B_original*
-**/*Adjudication_RC03_original*
